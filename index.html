@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#3e2723">
+    <title>تقرير أوجن | عرض أفقي — Ojn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Tajawal', sans-serif; background-color: #f9f6f0; color: #333; }
+        .brand-primary { color: #8d6e63; }
+        .brand-dark { color: #3e2723; }
+        .bg-brand-primary { background-color: #8d6e63; }
+        .bg-brand-dark { background-color: #3e2723; }
+        .bg-brand-light { background-color: #d7ccc8; }
+        @media print {
+            body { background-color: white; }
+            .shadow-lg, .shadow-md { box-shadow: none !important; border: 1px solid #ddd; }
+            .print-break { page-break-before: always; }
+        }
+        /* تصيم مبني على العرض (لاندسكيب) — آيفون 16 وما فوق */
+        @media (orientation: landscape) and (max-height: 500px) {
+            html { height: 100%; }
+            body { min-height: 100dvh; padding-bottom: 0.5rem; overflow-y: auto; }
+            .landscape-container { max-width: 100%; padding-left: 0.5rem; padding-right: 0.5rem; margin-top: -0.5rem; }
+            header { padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
+            header .flex { flex-direction: row; align-items: center; gap: 0.5rem; }
+            header h1 { font-size: 1rem !important; margin-bottom: 0 !important; line-height: 1.2; }
+            header p { font-size: 0.7rem !important; margin-bottom: 0.15rem !important; }
+            header .rounded-full { font-size: 0.6rem; padding: 0.15rem 0.4rem; margin-bottom: 0.2rem !important; }
+            header img { width: 2.5rem !important; height: 2.5rem !important; min-width: 2.5rem; }
+            .landscape-container .grid { margin-bottom: 0.4rem !important; gap: 0.4rem !important; }
+            .landscape-container section, .landscape-container .rounded-2xl { padding: 0.4rem 0.5rem !important; margin-bottom: 0.4rem !important; }
+            .landscape-container h2 { font-size: 0.9rem !important; margin-bottom: 0.3rem !important; }
+            .landscape-container h3 { font-size: 0.8rem !important; margin-bottom: 0.2rem !important; }
+            .landscape-container p, .landscape-container li { font-size: 0.65rem !important; line-height: 1.25; }
+            .landscape-container .text-lg { font-size: 0.7rem !important; }
+            .landscape-container .space-y-4 > * + * { margin-top: 0.2rem !important; }
+            .landscape-container ul.space-y-4 { gap: 0.15rem; }
+            .landscape-container .space-y-2 > * + * { margin-top: 0.1rem !important; }
+            .comparison-table { font-size: 0.55rem !important; table-layout: fixed; width: 100%; }
+            .comparison-table th, .comparison-table td { padding: 0.15rem 0.2rem !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+            .comparison-table img { width: 0.9rem !important; height: 0.9rem !important; min-width: 0.9rem; }
+            .swot-grid { display: grid !important; grid-template-columns: repeat(4, 1fr); gap: 0.3rem !important; }
+            .swot-grid > div { padding: 0.35rem !important; }
+            .swot-grid h3 { font-size: 0.7rem !important; }
+            .swot-grid ul { font-size: 0.58rem !important; }
+            .rec-grid { display: grid !important; grid-template-columns: repeat(6, 1fr); gap: 0.3rem !important; }
+            .rec-grid > div { padding: 0.35rem !important; }
+            .rec-grid h3 { font-size: 0.7rem !important; }
+            .rec-grid ul { font-size: 0.58rem !important; }
+            .landscape-container footer { margin-top: 0.5rem !important; padding: 0.3rem !important; font-size: 0.6rem !important; }
+            .landscape-container footer p { margin: 0.1rem 0 !important; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-brand-dark text-white py-8 px-4 shadow-lg relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10" style="background-image: url('https://www.transparenttextures.com/patterns/cubes.png');"></div>
+        <div class="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6">
+            <div class="text-center md:text-right mb-4 md:mb-0 flex-1 order-2 md:order-1">
+                <span class="bg-brand-primary text-white text-xs px-2 py-0.5 rounded-full font-bold tracking-wider mb-2 inline-block">سري للاستخدام الداخلي</span>
+                <h1 class="text-2xl md:text-4xl font-bold mb-2 leading-tight">تقرير تحليل تنافسي شامل</h1>
+                <p class="text-base text-gray-300 mb-1"><i class="fas fa-coffee ml-1"></i>كوفي أوجن | Ojn</p>
+                <p class="text-sm text-gray-400"><i class="fas fa-map-marker-alt ml-1"></i>بريدة، القصيم — مارس ٢٠٢٦</p>
+            </div>
+            <div class="bg-white p-1.5 rounded-xl shadow-xl shrink-0 order-1 md:order-2 me-4 md:me-6 md:w-36 md:flex md:justify-center">
+                <img src="https://lh3.googleusercontent.com/p/AF1QipNcw0inYmmDuxFIcmftdYOg1mRKMJ4x5kQqDNT2=s1360-w1360-h1020-rw" alt="Ojn" class="w-20 h-20 md:w-36 md:h-36 object-cover rounded-lg">
+            </div>
+        </div>
+    </header>
+
+    <main class="landscape-container max-w-7xl mx-auto px-3 sm:px-4 -mt-4 relative z-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+            <div class="bg-white rounded-xl shadow-md p-4 md:col-span-2 border-t-4 border-brand-primary">
+                <h2 class="text-xl font-bold brand-dark mb-3"><i class="fas fa-file-alt ml-2 brand-primary"></i>١. الملخص التنفيذي</h2>
+                <p class="text-gray-700 leading-relaxed text-sm text-justify">
+                    يقدّم هذا التقرير تحليلاً تنافسياً مفصّلاً لكوفي <strong>أوجن (Ojn)</strong> الواقع في حي الريان بمدينة بريدة، مقارنةً بـ <strong>١٥ كافيه منافسًا</strong>. يغطي التقرير التقييمات والمراجعات، التواجد الرقمي، الأصناف والمنيو، الأسعار، نقاط القوة والضعف، ويُختتم بتوصيات عملية.
+                </p>
+                <div class="mt-2 bg-brand-light bg-opacity-30 p-2 rounded-lg">
+                    <p class="text-xs text-gray-800"><strong><i class="fas fa-star text-yellow-500 ml-1"></i> أبرز المراجعات:</strong> حلويات واحترافية، قهوة مختصة، أجواء راقية.</p>
+                    <p class="text-xs text-red-600 mt-1"><strong><i class="fas fa-exclamation-circle ml-1"></i> الشكاوى:</strong> اتساق الجودة (تقييم 3.9).</p>
+                </div>
+            </div>
+            <div class="bg-brand-dark text-white rounded-xl shadow-md p-4">
+                <h2 class="text-lg font-bold mb-3 border-b border-gray-600 pb-1"><i class="fas fa-id-card ml-2 text-brand-primary"></i>٢. بطاقة تعريف | Ojn</h2>
+                <ul class="space-y-2 text-xs">
+                    <li class="flex justify-between"><span class="text-gray-400">الموقع</span> <span>حي الريان، بريدة</span></li>
+                    <li class="flex justify-between"><span class="text-gray-400">التقييم</span> <span class="font-bold text-yellow-400">3.9 / 5 (878)</span></li>
+                    <li class="flex justify-between"><span class="text-gray-400">السعر</span> <span>٢٠–٤٠ ر.س.</span></li>
+                    <li class="flex justify-between"><span class="text-gray-400">ساعات العمل</span> <span>٤م – ٢:٣٠ص</span></li>
+                    <li class="flex justify-between"><span class="text-gray-400">انستقرام</span> <span>6,000+</span></li>
+                </ul>
+                <div class="mt-2 pt-2 border-t border-gray-600 flex flex-wrap gap-1">
+                    <span class="bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">جلوس</span>
+                    <span class="bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">سفري</span>
+                    <span class="bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">توصيل</span>
+                    <span class="bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">أونلاين</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-md p-4 mb-4 print-break">
+            <h2 class="text-xl font-bold brand-dark mb-3"><i class="fas fa-table ml-2 brand-primary"></i>٣. المقارنة التنافسية الشاملة</h2>
+            <div class="overflow-x-auto">
+                <table class="comparison-table w-full text-xs text-right">
+                    <thead class="bg-brand-light text-brand-dark">
+                        <tr>
+                            <th class="px-2 py-1.5 rounded-tr-lg">الكافيه</th>
+                            <th class="px-2 py-1.5">التقييم</th>
+                            <th class="px-2 py-1.5">المراجعات</th>
+                            <th class="px-2 py-1.5">السعر</th>
+                            <th class="px-2 py-1.5">الحي</th>
+                            <th class="px-2 py-1.5 rounded-tl-lg">أبرز نقطة قوة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-brand-primary bg-opacity-10 border-b-2 border-brand-primary font-bold">
+                            <td class="px-2 py-1.5 flex items-center"><img src="https://lh3.googleusercontent.com/p/AF1QipNcw0inYmmDuxFIcmftdYOg1mRKMJ4x5kQqDNT2=s1360-w1360-h1020-rw" class="w-5 h-5 rounded-full ml-1"> أوجن Ojn</td>
+                            <td class="px-2 py-1.5 text-red-600">3.9 ★</td>
+                            <td class="px-2 py-1.5">878</td>
+                            <td class="px-2 py-1.5">٢٠–٤٠</td>
+                            <td class="px-2 py-1.5">الريان</td>
+                            <td class="px-2 py-1.5">حلويات فاخرة + قهوة مختصة</td>
+                        </tr>
+                        <tr class="border-b hover:bg-gray-50"><td class="px-2 py-1.5">١. نمق</td><td class="px-2 py-1.5 text-green-600">4.4</td><td class="px-2 py-1.5">2,946</td><td class="px-2 py-1.5">٢٠–٤٠</td><td class="px-2 py-1.5">النهضة</td><td class="px-2 py-1.5 text-gray-600">علامة قوية، ٢١٣ ألف</td></tr>
+                        <tr class="border-b hover:bg-gray-50 bg-gray-50"><td class="px-2 py-1.5">٢. بوق</td><td class="px-2 py-1.5 text-green-600">4.3</td><td class="px-2 py-1.5">2,249</td><td class="px-2 py-1.5">-</td><td class="px-2 py-1.5">أبو بكر</td><td class="px-2 py-1.5 text-gray-600">وافل، قهوة اليوم</td></tr>
+                        <tr class="border-b hover:bg-gray-50"><td class="px-2 py-1.5">٣. كانتو</td><td class="px-2 py-1.5 text-green-600">4.7</td><td class="px-2 py-1.5">1,501</td><td class="px-2 py-1.5">١–٢٠</td><td class="px-2 py-1.5">سلطان</td><td class="px-2 py-1.5 text-gray-600">اقتصادي، فروع</td></tr>
+                        <tr class="border-b hover:bg-gray-50 bg-gray-50"><td class="px-2 py-1.5">٤. بريو</td><td class="px-2 py-1.5 text-green-600">4.4</td><td class="px-2 py-1.5">888</td><td class="px-2 py-1.5">٢٠–٤٠</td><td class="px-2 py-1.5">أبو بكر</td><td class="px-2 py-1.5 text-gray-600">قهوة وحلى راقي</td></tr>
+                        <tr class="border-b hover:bg-gray-50"><td class="px-2 py-1.5">٥. نورد</td><td class="px-2 py-1.5 text-green-600">4.5</td><td class="px-2 py-1.5">898</td><td class="px-2 py-1.5">٢٠–٤٠</td><td class="px-2 py-1.5">الريان</td><td class="px-2 py-1.5 text-gray-600">بسبوسة، مكان رايق</td></tr>
+                        <tr class="border-b hover:bg-gray-50 bg-gray-50"><td class="px-2 py-1.5">٦. فكت</td><td class="px-2 py-1.5 text-green-600">4.7</td><td class="px-2 py-1.5">833</td><td class="px-2 py-1.5">١–٢٠</td><td class="px-2 py-1.5">الملك سلمان</td><td class="px-2 py-1.5 text-gray-600">كوكيز، سعر منخفض</td></tr>
+                        <tr class="border-b hover:bg-gray-50"><td class="px-2 py-1.5">٧. سمراء</td><td class="px-2 py-1.5 text-yellow-600">4.0</td><td class="px-2 py-1.5 font-bold">4,057</td><td class="px-2 py-1.5">$$</td><td class="px-2 py-1.5">أبو بكر</td><td class="px-2 py-1.5 text-gray-600">فطور، ساندويشات</td></tr>
+                        <tr class="border-b hover:bg-gray-50 bg-gray-50"><td class="px-2 py-1.5">٨. أدهم</td><td class="px-2 py-1.5 text-green-600">4.6</td><td class="px-2 py-1.5">686</td><td class="px-2 py-1.5">٢٠–٤٠</td><td class="px-2 py-1.5">خالد</td><td class="px-2 py-1.5 text-gray-600">V60، كيكة جزر</td></tr>
+                        <tr class="border-b hover:bg-gray-50"><td class="px-2 py-1.5">٩. أوان</td><td class="px-2 py-1.5 text-green-600 font-bold">4.8</td><td class="px-2 py-1.5">574</td><td class="px-2 py-1.5">١–٢٠</td><td class="px-2 py-1.5">-</td><td class="px-2 py-1.5 text-gray-600">٢٤ ساعة، درايف ثرو</td></tr>
+                        <tr class="border-b hover:bg-gray-50 bg-gray-50"><td class="px-2 py-1.5">١٠. قهوة آن</td><td class="px-2 py-1.5 text-green-600">4.5</td><td class="px-2 py-1.5">404</td><td class="px-2 py-1.5">٢٠–٤٠</td><td class="px-2 py-1.5">قرطبة</td><td class="px-2 py-1.5 text-gray-600">قهوة اليوم بارد</td></tr>
+                        <tr class="border-b hover:bg-gray-50"><td class="px-2 py-1.5">١١. لوكا</td><td class="px-2 py-1.5 text-green-600">4.3</td><td class="px-2 py-1.5">2,435</td><td class="px-2 py-1.5">٢٠–٤٠</td><td class="px-2 py-1.5">البخاري</td><td class="px-2 py-1.5 text-gray-600">٢٤ ساعة</td></tr>
+                        <tr class="border-b hover:bg-gray-50 bg-gray-50"><td class="px-2 py-1.5">١٢. بيرسون</td><td class="px-2 py-1.5 text-red-600">3.9</td><td class="px-2 py-1.5">181</td><td class="px-2 py-1.5">١–٢٠</td><td class="px-2 py-1.5">مسلم</td><td class="px-2 py-1.5 text-gray-600">٢٤ ساعة، أسعار</td></tr>
+                        <tr class="border-b hover:bg-gray-50"><td class="px-2 py-1.5">١٣. ليون</td><td class="px-2 py-1.5 text-green-600">4.3</td><td class="px-2 py-1.5">272</td><td class="px-2 py-1.5">٢٠–٤٠</td><td class="px-2 py-1.5">عبدالعزيز</td><td class="px-2 py-1.5 text-gray-600">أول مختصة، إطلالة</td></tr>
+                        <tr class="border-b hover:bg-gray-50 bg-gray-50"><td class="px-2 py-1.5">١٤. نورا</td><td class="px-2 py-1.5 text-green-600">4.5</td><td class="px-2 py-1.5">203</td><td class="px-2 py-1.5">٢٠–٤٠</td><td class="px-2 py-1.5">علي بن أبي طالب</td><td class="px-2 py-1.5 text-gray-600">فرنش توست</td></tr>
+                        <tr class="border-b hover:bg-gray-50"><td class="px-2 py-1.5">١٥. كوفنت</td><td class="px-2 py-1.5 text-green-600">4.4</td><td class="px-2 py-1.5">34</td><td class="px-2 py-1.5">-</td><td class="px-2 py-1.5">الإسكان</td><td class="px-2 py-1.5 text-gray-600">مول الجديعي</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4 print-break">
+            <div class="bg-white rounded-xl shadow-md p-4">
+                <h3 class="text-lg font-bold brand-dark mb-2 border-b pb-1"><i class="fas fa-hashtag ml-2 text-blue-500"></i>التواجد الرقمي</h3>
+                <div class="space-y-2 text-xs">
+                    <div class="flex justify-between"><span>نمق</span> <span class="font-bold">213K</span></div>
+                    <div class="w-full bg-gray-200 rounded-full h-1.5"><div class="bg-blue-600 h-1.5 rounded-full" style="width:100%"></div></div>
+                    <div class="flex justify-between"><span>بوق</span> <span class="font-bold">50K+</span></div>
+                    <div class="w-full bg-gray-200 rounded-full h-1.5"><div class="bg-blue-500 h-1.5 rounded-full" style="width:25%"></div></div>
+                    <div class="flex justify-between text-brand-primary font-bold"><span>أوجن</span> <span>~6K</span></div>
+                    <div class="w-full bg-gray-200 rounded-full h-1.5"><div class="bg-brand-primary h-1.5 rounded-full" style="width:4%"></div></div>
+                </div>
+                <p class="mt-2 p-2 bg-red-50 text-red-700 text-[10px] rounded border border-red-100"><strong>الفجوة:</strong> استراتيجية محتوى ومؤثرين.</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-md p-4">
+                <h3 class="text-lg font-bold brand-dark mb-2 border-b pb-1"><i class="fas fa-utensils ml-2 text-orange-500"></i>المنيو</h3>
+                <div class="flex gap-2 text-xs">
+                    <div class="flex-1 bg-green-50 p-2 rounded border border-green-100">
+                        <h4 class="font-bold text-green-800 mb-1">تميز أوجن:</h4>
+                        <p class="text-gray-700">حلويات فاخرة، قهوة اليوم، Ice Drip</p>
+                    </div>
+                    <div class="flex-1 bg-orange-50 p-2 rounded border border-orange-100">
+                        <h4 class="font-bold text-orange-800 mb-1">المنافسون:</h4>
+                        <p class="text-gray-700">فطور، ٢٤ ساعة، أسعار &lt;٢٠</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-xl font-bold brand-dark mb-3 text-center print-break"><i class="fas fa-chart-pie ml-2 brand-primary"></i>٥. SWOT</h2>
+        <div class="swot-grid grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+            <div class="bg-white border-t-4 border-green-500 rounded-lg shadow p-3">
+                <h3 class="text-sm font-bold text-green-700 mb-1">نقاط القوة</h3>
+                <ul class="text-xs text-gray-700 space-y-0.5 list-disc list-inside">حلويات عالية، أجواء راقية، أقسام عوائل/شباب، قهوة مختصة، توصيل.</ul>
+            </div>
+            <div class="bg-white border-t-4 border-red-500 rounded-lg shadow p-3">
+                <h3 class="text-sm font-bold text-red-700 mb-1">نقاط الضعف</h3>
+                <ul class="text-xs text-gray-700 space-y-0.5 list-disc list-inside">تقييم 3.9، تواجد رقمي ضعيف، ساعات مسائية فقط، منيو محدود.</ul>
+            </div>
+            <div class="bg-white border-t-4 border-blue-500 rounded-lg shadow p-3">
+                <h3 class="text-sm font-bold text-blue-700 mb-1">الفرص</h3>
+                <ul class="text-xs text-gray-700 space-y-0.5 list-disc list-inside">نمو السوق، فترة صباحية، مؤثرين، منتجات موسمية، تطبيقات توصيل.</ul>
+            </div>
+            <div class="bg-white border-t-4 border-yellow-500 rounded-lg shadow p-3">
+                <h3 class="text-sm font-bold text-yellow-700 mb-1">التهديدات</h3>
+                <ul class="text-xs text-gray-700 space-y-0.5 list-disc list-inside">منافسة شرسة، فروع متعددة، توقعات عالية، حساسية سعر.</ul>
+            </div>
+        </div>
+
+        <h2 class="text-xl font-bold brand-dark mb-3 text-center print-break"><i class="fas fa-clipboard-check ml-2 brand-primary"></i>٦. التوصيات</h2>
+        <div class="rec-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-4">
+            <div class="bg-white rounded-lg shadow p-3"><div class="text-brand-primary text-xl mb-1"><i class="fas fa-star-half-alt"></i></div><h3 class="font-bold text-sm mb-0.5">تحسين التقييمات</h3><p class="text-xs text-gray-600">رد على جوجل، تحفيز التقييم، هدف 4.3</p></div>
+            <div class="bg-white rounded-lg shadow p-3"><div class="text-brand-primary text-xl mb-1"><i class="fas fa-bullhorn"></i></div><h3 class="font-bold text-sm mb-0.5">التسويق الرقمي</h3><p class="text-xs text-gray-600">Reels، مؤثرين، حملات 15كم</p></div>
+            <div class="bg-white rounded-lg shadow p-3"><div class="text-brand-primary text-xl mb-1"><i class="fas fa-book-open"></i></div><h3 class="font-bold text-sm mb-0.5">تطوير المنيو</h3><p class="text-xs text-gray-600">فطور، قهوة الشهر، أكياس</p></div>
+            <div class="bg-white rounded-lg shadow p-3"><div class="text-brand-primary text-xl mb-1"><i class="fas fa-clock"></i></div><h3 class="font-bold text-sm mb-0.5">ساعات وتوصيل</h3><p class="text-xs text-gray-600">صباح 7، جاهز/هنقر، حلى توصيل</p></div>
+            <div class="bg-white rounded-lg shadow p-3"><div class="text-brand-primary text-xl mb-1"><i class="fas fa-users"></i></div><h3 class="font-bold text-sm mb-0.5">تجربة العميل</h3><p class="text-xs text-gray-600">تدريب، برنامج ولاء، قوائم</p></div>
+            <div class="bg-white rounded-lg shadow p-3"><div class="text-brand-primary text-xl mb-1"><i class="fas fa-store-alt"></i></div><h3 class="font-bold text-sm mb-0.5">التوسع</h3><p class="text-xs text-gray-600">فرع ثانٍ، درايف ثرو، هوية</p></div>
+        </div>
+
+        <div class="bg-brand-dark text-white rounded-xl shadow-xl p-4 text-center">
+            <h2 class="text-lg font-bold mb-2 text-brand-light">ملخص المركز التنافسي</h2>
+            <p class="text-sm leading-relaxed max-w-4xl mx-auto">
+                أوجن يملك منتجاً قوياً (حلويات وقهوة مختصة) ويعاني من ضعف رقمي وتقييم أقل. <strong>الفرصة:</strong> تعزيز «الحلويات الفاخرة» كميزة فريدة مع رفع التواجد الرقمي ومعالجة التقييمات.
+            </p>
+        </div>
+    </main>
+
+    <footer class="text-center text-gray-500 text-xs py-3">
+        <p>البيانات من خرائط Google وإنستقرام. إلكسار الرقمية — استخدام داخلي. © ٢٠٢٦</p>
+    </footer>
+
+</body>
+</html>
